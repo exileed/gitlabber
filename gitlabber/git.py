@@ -69,7 +69,7 @@ def clone_or_pull_project(action):
         log.debug("cloning new project %s", action.path)
         progress.show_progress(action.node.name, 'clone')
         try:
-            git.Repo.clone_from(node.url, path, multi_options=['--mirror'])
+            git.Repo.clone_from(action.node.url, action.path, multi_options=['--mirror'])
         except KeyboardInterrupt:
             log.fatal("User interrupted")
             sys.exit(0)
